@@ -19,7 +19,9 @@
   {registered, []},
   {applications, [
                   kernel,
-                  stdlib
+                  stdlib,
+                  compiler,
+                  parsetools
                  ]},
   {mod, { luerl_app, []}},
   {env, []}

@@ -25,7 +25,7 @@
 
 -include_lib("kernel/include/file.hrl").
 
--include("luerl.hrl").
+-include("../include/luerl.hrl").
 
 %% The basic entry point to set up the function table.
 -export([install/1]).

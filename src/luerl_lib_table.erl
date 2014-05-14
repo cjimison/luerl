@@ -23,7 +23,7 @@
 
 -module(luerl_lib_table).
 
--include("luerl.hrl").
+-include("../include/luerl.hrl").
 
 %% The basic entry point to set up the function table.
 -export([install/1]).

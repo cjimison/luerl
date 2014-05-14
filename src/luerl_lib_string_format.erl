@@ -18,7 +18,7 @@
 
 -module(luerl_lib_string_format).
 
--include("luerl.hrl").
+-include("../include/luerl.hrl").
 
 -export([format/3]).
 

@@ -20,7 +20,7 @@
 
 -module(luerl_comp_locf).
 
--include("luerl.hrl").
+-include("../include/luerl.hrl").
 -include("luerl_comp.hrl").
 
 -export([chunk/2]).

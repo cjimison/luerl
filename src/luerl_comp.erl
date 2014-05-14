@@ -32,7 +32,7 @@
 
 -import(lists, [member/2,keysearch/3,mapfoldl/3]).
 
--include("luerl.hrl").
+-include("../include/luerl.hrl").
 -include("luerl_comp.hrl").
 
 -record(comp, {base="",				%Base name

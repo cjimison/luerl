@@ -31,12 +31,12 @@
 
 -module(luerl_emul).
 
--include("luerl.hrl").
+-include("../include/luerl.hrl").
 -include("luerl_comp.hrl").
 -include("luerl_instrs.hrl").
 
 %% Basic interface.
--export([init/0,gc/1]).
+-export([init/0,init/1,gc/1]).
 -export([call/2,call/3,emul/2]).
 -export([load_chunk/2,load_chunk/3,load_function/2,load_function/3]).
 
@@ -68,6 +68,9 @@
 %% Initialise the basic state.
 
 init() ->
+    init([]).
+
+init(ExternalLibs) ->
     %% Initialise the general stuff.
     St0 = #luerl{meta=#meta{},tag=make_ref()},
     %% Initialise the table handling.
@@ -81,11 +84,11 @@ init() ->
     St5 = load_lib(<<"package">>, luerl_lib_package, St4),
     %% Add the other standard libraries.
     St6 = alloc_libs([{<<"string">>,luerl_lib_string},
-		      {<<"table">>,luerl_lib_table},
-		      {<<"math">>,luerl_lib_math},
-		      {<<"io">>,luerl_lib_io},
-		      {<<"os">>,luerl_lib_os},
-		      {<<"bit32">>,luerl_lib_bit32}], St5),
+        {<<"table">>,luerl_lib_table},
+        {<<"math">>,luerl_lib_math},
+        {<<"io">>,luerl_lib_io},
+        {<<"os">>,luerl_lib_os},
+        {<<"bit32">>,luerl_lib_bit32} | ExternalLibs], St5),
     %% Set _G variable to point to it and add it packages.loaded.
     St7 = set_global_key(<<"_G">>, _G, St6),
     set_table_keys([<<"package">>,<<"loaded">>,<<"_G">>], _G, St7).

@@ -22,7 +22,7 @@
 
 -module(luerl_lib).
 
--include("luerl.hrl").
+-include("../include/luerl.hrl").
 
 -export([lua_error/2,badarg_error/3,format_error/1]).
 

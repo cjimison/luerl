@@ -20,7 +20,7 @@
 
 -module(luerl_lib_io).
 
--include("luerl.hrl").
+-include("../include/luerl.hrl").
 
 -export([install/1]).
 

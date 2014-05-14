@@ -20,7 +20,7 @@
 
 -module(luerl_comp_peep).
 
--include("luerl.hrl").
+-include("../include/luerl.hrl").
 -include("luerl_comp.hrl").
 -include("luerl_instrs.hrl").
 
