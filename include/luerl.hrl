@@ -25,11 +25,13 @@
 		ftab,ffree,fnext,		%Frame table, free, next
 		g,				%Global table
 		%%
-		stk=[],				%Current stack
+		stk=[],			%Current stack
 		%%
-		meta=[],			%Data type metatables
-		tag				%Unique tag
-	       }).
+		meta=[],		%Data type metatables
+		tag,			%Unique tag
+        owner=nil,      % A
+        dir=nil
+}).
 
 -record(heap, {ttab,tfree,tnext,
 	       ftab,ffree,fnext}).
@@ -40,10 +42,10 @@
 
 %% Metatables for atomic datatypes.
 
--record(meta, {nil=nil,
-	       boolean=nil,
-	       number=nil,
-	       string=nil}).
+-record(meta, { nil=nil,
+	            boolean=nil,
+	            number=nil,
+	            string=nil}).
 
 %% Data types.
 
